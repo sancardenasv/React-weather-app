@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { PropTypes } from "prop-types";
 import Location from "./Location";
 import WeatherData from "./WeatherData";
-import getUrlWeatherByCity from "./../../services/getUrlWeatherByCity"
+import {getUrlWeatherByCity} from "./../../services/getWeatherUrl";
 import transformWeather from "./../../services/transformWeather";
 import './styles.css';
 

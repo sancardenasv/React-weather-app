@@ -52,7 +52,7 @@ class App extends Component {
                         <LocationList cities={cities}
                             onSelectedLocation={this.handleSelectionLocation}></LocationList>
                     </div>
-                    <div className="col-sm-12 col-lg-6 col-xl-7 mt-1" style={{backgroundColor: "grey"}}>
+                    <div className="col-sm-12 col-lg-6 col-xl-7 mt-1 pb-1" style={{backgroundColor: "grey"}}>
                         {this.state.city
                             ? <ForecastExtended city={this.state.city}></ForecastExtended>
                             : <h3>Seleccione ciudad</h3>
