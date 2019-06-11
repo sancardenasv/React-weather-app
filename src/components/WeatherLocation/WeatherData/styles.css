@@ -1,6 +1,4 @@
 .weatherDataCont {
-    height: 90px;
-    line-height: 100px;
     background-color: rgba(200, 200, 200, 0.5);
     border-radius: 5px;
 }
@@ -27,7 +25,6 @@
 }
 
 .extaInfoText {
-    display: block;
     color: #1535C5;
     font-size: 16px;
     font-weight: bold;

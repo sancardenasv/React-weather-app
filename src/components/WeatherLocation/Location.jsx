@@ -4,8 +4,8 @@ import './styles.css';
 
 const Location = ({city}) => {
     return (
-        <div className="row locationCont mb-2">
-            <h3 className="col-12 card-title float-left">{city}</h3>
+        <div className="locationCont">
+            <h3 className="">{city}</h3>
         </div>
     );
 };

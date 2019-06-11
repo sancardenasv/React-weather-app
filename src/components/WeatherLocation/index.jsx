@@ -37,26 +37,31 @@ class WeatherLocation extends Component {
         const {onWeathetLocationClick} = this.props;
         const {city, data} = this.state;
         return (
-            <div className="weatherLocationCont">
-                <Location city={city}></Location>
-                <div className="row justify-content-center">
-                    {
-                        data ?
-                            <WeatherData data={data} />
-                        :
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="sr-only">Loading...</span>
-                            </div>
-                    }
-
-                    <button onClick={this.handleUpdateClick} type="button" className="btn btn-info btn-sm">
-                        <i className="fas fa-sync-alt"></i>
-                    </button>
-                    <button onClick={onWeathetLocationClick} type="button" className="btn btn-success btn-sm">
-                        <i className="fas fa-arrow-right"></i>
-                    </button>
+            <>
+                <div className="row">
+                    <div className="col-12">
+                        <Location city={city}></Location>
+                    </div>
                 </div>
-            </div>
+                {
+                    data ?
+                        <div className="row">
+                            <div className="col-9">
+                                <WeatherData data={data} />
+                            </div>
+                            <button onClick={this.handleUpdateClick} type="button" className="col-1 btn btn-info btn-sm">
+                                <i className="fas fa-sync-alt"></i>
+                            </button>
+                            <button onClick={onWeathetLocationClick} type="button" className="col-1 btn btn-success btn-sm">
+                                <i className="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        :
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                }
+            </>
         );
     }
     

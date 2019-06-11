@@ -15,10 +15,10 @@ const icons = {
 
 const WeatherTemparature = ({temperature, weatherState}) => (
     <>
-        <div className="col-3 ml-2 mt-2">
+        <div className="col-2 ml-2 mt-1">
             {getWatherIcon(weatherState)}
         </div>
-        <div className="col-3 ml-2">
+        <div className="col-3 mt-5">
             <span className="temperature">{temperature}</span>
             <span className="temperatureType">C°</span>
         </div>

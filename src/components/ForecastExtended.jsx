@@ -28,11 +28,19 @@ class ForecastExtended extends Component {
     }
 
     componentDidMount() {
-        this.handleUpdateClick();
+        this.handleUpdateClick(this.props.city);
     }
 
-    handleUpdateClick = () => {
-        const {city} = this.props;
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.city !== this.props.city) {
+            this.setState({
+                forecastData: null
+            });
+            this.handleUpdateClick(nextProps.city)
+        }
+    }
+
+    handleUpdateClick = city => {
         fetch(getUrlForecastByCity(city)).then(resolve => {
             return resolve.json();
         }).then(data => {
@@ -59,10 +67,10 @@ class ForecastExtended extends Component {
         return(
             <div className="row">
                 <div className="col-12">
-                    <h4>Pronostico extendido para {city}</h4>
+                    <h3>Pronostico extendido para {city}</h3>
                 </div>
                 <div className="col-12">
-                    <div className="row">
+                    <div className="row mb-2">
                         { forecastData
                             ? this.renderForecastItemDays(forecastData)
                             : this.renderProgress()
