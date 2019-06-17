@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import LocationList from './components/LocationList';
-import ForecastExtended from './components/ForecastExtended';
+import LocationListContainer from './containers/LocationListContainer';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 const cities = [
     "Buenos Aires,ar",
@@ -13,18 +13,6 @@ const cities = [
 ];
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            city: null
-        }
-    }
-
-    handleSelectionLocation = city => {
-        this.setState({
-            city
-        });
-    };
 
     render() {
         return (
@@ -45,17 +33,13 @@ class App extends Component {
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid">
-                    <div class="row">
+                <div className="container-fluid">
+                    <div className="row">
                         <div className="col-sm-12 col-lg-6 col-xl-5">
-                            <LocationList cities={cities}
-                                onSelectedLocation={this.handleSelectionLocation}></LocationList>
+                            <LocationListContainer cities={cities}></LocationListContainer>
                         </div>
                         <div className="col-sm-12 col-lg-6 col-xl-7 mt-1 forecastExtendedCont">
-                            {this.state.city
-                                ? <ForecastExtended city={this.state.city}></ForecastExtended>
-                                : <h3>Seleccione ciudad</h3>
-                            }
+                            <ForecastExtendedContainer></ForecastExtendedContainer>
                         </div>
                     </div>
                 </div>

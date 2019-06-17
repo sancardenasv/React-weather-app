@@ -22,7 +22,7 @@ code {
 @media (max-width: 62em) {
   .forecastExtendedCont {
     background-color: gray;
-    height: 63vh;
+    height: 59vh;
     overflow: auto;
   }
 }
