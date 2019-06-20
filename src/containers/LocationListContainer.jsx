@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setCity } from "./../actions"
+import { setSelectedCity } from "./../actions"
 import PropTypes from 'prop-types';
 import LocationList from './../components/LocationList';
 
@@ -28,7 +28,7 @@ LocationListContainer.propTypes = {
 
 // Inject properties
 const mapDispatchToProps = dispatch => ({
-    dispatchSetCity: value => dispatch(setCity(value))
+    dispatchSetCity: value => dispatch(setSelectedCity(value))
 });
 
 export default connect(null, mapDispatchToProps)(LocationListContainer);
