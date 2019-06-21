@@ -26,10 +26,16 @@ const setWeatherCity = payload => ({
 });
 
 export const setSelectedCity = payload => {
-    return dispatch => {
+    return (dispatch, getState) => {
         // Start request indicator in the state
         dispatch(setCity(payload));
 
+        const state = getState();
+        const requestDate = state.cities[payload] && state.cities[payload].requestDate;
+        if (requestDate && (new Date() - requestDate) < 1 * 60 * 1000) {
+            // Do not call api if the last request was less than a minute ago
+            return;
+        }
         return fetch(getUrlForecastByCity(payload)).then(resolve => {
             return resolve.json();
         }).then(data => {
